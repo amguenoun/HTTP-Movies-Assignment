@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { Route, Link } from "react-router-dom";
 
-import { Route } from "react-router-dom";
 import SavedList from "./Movies/SavedList";
 import UpdateForm from './Movies/UpdateForm';
 import MovieList from "./Movies/MovieList";
+import AddMovie from './Movies/AddMovie'
 import Movie from "./Movies/Movie";
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
   return (
     <>
       <SavedList list={savedList} />
+      <Link to='/add-movie'>Add Movie</Link>
       <Route exact path="/" render={() => <MovieList listMovie={listMovie} />} />
       <Route
         path="/movies/:id"
@@ -38,6 +40,7 @@ const App = () => {
         }}
       />
       <Route path='/update-movie/:id' render={(props) => <UpdateForm {...props} />} />
+      <Route path='/add-movie' render={(props) => <AddMovie {...props} handleListUpdate={handleListUpdate} />} />
     </>
   );
 };

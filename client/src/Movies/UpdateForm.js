@@ -26,7 +26,8 @@ const UpdateForm = (props) => {
     const handleEditSubmit = (e) => {
         e.preventDefault();
         axios.put(`http://localhost:5000/api/movies/${id}`, movie)
-            .then(res => props.history.push(`/movies/${id}`))
+            .then(props.handleListUpdate())
+            .then(props.history.push(`/movies/${id}`))
 
     }
 

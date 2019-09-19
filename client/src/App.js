@@ -38,7 +38,7 @@ const App = () => {
           return <Movie {...props} addToSavedList={addToSavedList} handleListUpdate={handleListUpdate} />;
         }}
       />
-      <Route path='/update-movie/:id' render={(props) => <UpdateForm {...props} />} />
+      <Route path='/update-movie/:id' render={(props) => <UpdateForm {...props} handleListUpdate={handleListUpdate} />} />
       <Route path='/add-movie' render={(props) => <AddMovie {...props} handleListUpdate={handleListUpdate} />} />
     </>
   );
